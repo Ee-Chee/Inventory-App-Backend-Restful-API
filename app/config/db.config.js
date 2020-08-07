@@ -1,5 +1,10 @@
-const secrets = require("../../secrets");
-// console.log("secrets:", secrets);
+let secrets;
+
+if (process.env.NODE_ENV == "production") {
+    secrets = process.env; 
+} else {
+    secrets = require("../../secrets"); 
+}
 
 module.exports = {
     HOST: secrets.AWS_HOST,

@@ -34,12 +34,12 @@ exports.findQuantityAtUserId5 = (req, res) => {
 
 exports.updateQuantityAtUserId5 = (req, res) => {
     Quantity.update({ quantity_array : req.body.quantityArray }, {
-        where: { userid: 5 }
+        where: { userid: 5 },
+        returning: true,
+        plain: true
     })
     .then(data => {
-        res.status(200).json({
-            message: "update completed"
-        });
+        res.send(data);
     })
     .catch((err) => {
         res.send({ errMsg: "Error updating quantity!" })

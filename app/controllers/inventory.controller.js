@@ -21,7 +21,31 @@ exports.findQuantity = (req, res) => {
         res.send({ errMsg: "Wrong!" })
     });
 };
+/////////////////////////////////////
+exports.findQuantityAtUserId5 = (req, res) => {
+    Quantity.findOne({ where: {userid: 5} })
+    .then(data => {
+        res.send(data);
+    })
+    .catch((err) => {
+        res.send({ errMsg: "Error retrieving quantity!" })
+    });
+};
 
+exports.updateQuantityAtUserId5 = (req, res) => {
+    Quantity.update({ quantity_array : req.body.quantityArray }, {
+        where: { userid: 5 }
+    })
+    .then(data => {
+        res.status(200).json({
+            message: "update completed"
+        });
+    })
+    .catch((err) => {
+        res.send({ errMsg: "Error updating quantity!" })
+    });
+};
+/////////////////////////////////////////////////
 exports.updateQuantity = (req, res) => {
     Quantity.update({ quantity_array : req.body.quantityArray }, {
         where: { userid: req.session.userId }
@@ -48,8 +72,7 @@ exports.findAllGoods = (req, res) => {
             res.send(data);
         })
         .catch((err) => {
-            console.log("err3", err);
-            res.send({ errMsg: "Wrong3!" })
+            res.send({ errMsg: "Error retrieving goods!" })
         });
 };
 

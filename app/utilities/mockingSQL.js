@@ -10,6 +10,8 @@
 // UPDATE goods SET subunit = 'Reihe', subunit_n = 6 where item = 'M Schale Deckel';
 // UPDATE goods SET subunit = 'Reihe', subunit_n = 8 where item = 'Salatschale oval';
 // UPDATE goods SET subunit = 'Reihe', subunit_n = 8 where item = 'Salatschale oval Deckel';
+// UPDATE goods SET subunit = 'Reihe', subunit_n = 3 where item = 'M Schale';
+// UPDATE goods SET subunit = 'Reihe', subunit_n = 6 where item = 'M Schale Deckel';
 
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gekochter Thunfisch', 'Beutel', NULL, NULL, 'Trockensortiment');
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ingwer', 'Karton', 'Beutel', 10, 'Trockensortiment');
@@ -69,6 +71,8 @@
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Mango', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Matcha', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Tiramisu', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
+// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Kokos', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
+// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Thunfischfüllung mit Mayo', 'Karton', 'Beutel', 2, 'Tiefkühlprodukte');
 
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mayonnaise', 'Tube', NULL, NULL, 'Kühl');
 // INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Teriyaki Sauce', 'Flasche', NULL, NULL, 'Kühl');

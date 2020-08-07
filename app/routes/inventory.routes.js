@@ -22,7 +22,11 @@ module.exports = app => {
     router.post("/initialization", inventory.initializeQuantity);
 
     router.get("/amount", inventory.findQuantity);
+//////////////////////////////////////////
+    router.get("/amountid5", inventory.findQuantityAtUserId5);
 
+    router.post("/changeAmountid5", inventory.updateQuantityAtUserId5);
+///////////////////////////////////////////////
     router.post("/changeAmount", inventory.updateQuantity);
 
     router.get("/goods", inventory.findAllGoods);

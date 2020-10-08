@@ -25,17 +25,11 @@ exports.authUser = (req, res) => {
                 .checkPassword(req.body.password, data.password)
                 .then(correctPW => {
                     if (correctPW) {
-                        console.log("datalala", data.id);
+                        // console.log("datalala", data.id);
                         req.session.userId = data.id;
-                        res.contentType('text/html');
-                        res.status(200).send(data);
-                        // res.status(200).json({
-                        //     message: "update completed"
-                        // });
-                        // res.status(200);
-                        // res.status(200).json({
-                        //     userId: data.id
-                        // });//must response back so that cookies saved on browser
+                        // res.contentType('text/html');
+                        // res.status(200).send(data);
+                        res.send(data);
                     } else {
                         res.send({ errMsg: "Wrong password!" }) //to handle wrong message
                     }

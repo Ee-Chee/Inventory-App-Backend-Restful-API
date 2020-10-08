@@ -1,9 +1,9 @@
 let secrets;
 
 if (process.env.NODE_ENV == "production") {
-    secrets = process.env; 
+    secrets = process.env;
 } else {
-    secrets = require("../../secrets"); 
+    secrets = require("../../secrets");
 }
 
 module.exports = {
@@ -21,17 +21,17 @@ module.exports = {
 };
 
 // module.exports = {
-//   HOST: "localhost",
-//   USER: "postgres",
-//   PASSWORD: "postgres",
-//   DB: "Eat-Happy-Inventory",
-//   dialect: "postgres",
-//   pool: {
-//     max: 5,
-//     min: 0,
-//     acquire: 30000,
-//     idle: 10000
-//   }
+//     HOST: "localhost",
+//     USER: "postgres",
+//     PASSWORD: "postgres",
+//     DB: "Eat-Happy-Inventory",
+//     dialect: "postgres",
+//     pool: {
+//         max: 5,
+//         min: 0,
+//         acquire: 30000,
+//         idle: 10000
+//     }
 // };
 
 

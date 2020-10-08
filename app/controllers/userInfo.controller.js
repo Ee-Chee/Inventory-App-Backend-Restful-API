@@ -28,8 +28,11 @@ exports.authUser = (req, res) => {
                         console.log("datalala", data.id);
                         // req.session.userId = data.id;
                         res.status(200).json({
-                            userId: data.id
-                        });//must response back so that cookies saved on browser
+                            message: "update completed"
+                        });
+                        // res.status(200).json({
+                        //     userId: data.id
+                        // });//must response back so that cookies saved on browser
                     } else {
                         res.send({ errMsg: "Wrong password!" }) //to handle wrong message
                     }

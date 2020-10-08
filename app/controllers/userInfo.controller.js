@@ -27,8 +27,8 @@ exports.authUser = (req, res) => {
                     if (correctPW) {
                         console.log("datalala", data.id);
                         req.session.userId = data.id;
-                        setTimeout(res.status(200).send({ "userId": data.id }), 2000)
-                            ;
+                        res.contentType('text/html');
+                        res.status(200).send({ "userId": data.id });
                         // res.status(200).json({
                         //     message: "update completed"
                         // });

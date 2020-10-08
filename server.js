@@ -13,11 +13,8 @@ app.use(cors(corsOptions));
 
 const cookieSessionMiddleware = cookieSession({
     secret: `I'm wondering...`,
-    cookie: {
-        sameSite: 'strict',
-        // secure: false,
-        maxAge: null
-    }
+    sameSite: 'strict',
+    maxAge: null
 });
 
 app.use(cookieSessionMiddleware);

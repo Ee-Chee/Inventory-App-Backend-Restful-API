@@ -15,7 +15,7 @@ const cookieSessionMiddleware = cookieSession({
     secret: `I'm wondering...`,
     cookie: {
         sameSite: 'none',
-        secure: true,
+        secure: false,
         maxAge: null
     }
 });

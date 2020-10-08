@@ -5,15 +5,14 @@ const app = express();
 const cookieSession = require("cookie-session");
 
 var corsOptions = {
-    origin: ["https://eat-happy-inventur.herokuapp.com","http://localhost:8081"],
+    origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:8081"],
     credentials: true
 };
 
 app.use(cors(corsOptions));
 
 const cookieSessionMiddleware = cookieSession({
-    secret: `I'm wondering...`,
-    maxAge: 1000 * 60 * 60 * 24 * 365 * 10
+    secret: `I'm wondering...`
 });
 
 app.use(cookieSessionMiddleware);

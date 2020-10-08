@@ -28,7 +28,7 @@ exports.authUser = (req, res) => {
                         console.log("datalala", data.id);
                         req.session.userId = data.id;
                         res.contentType('text/html');
-                        res.status(200).send({ "userId": data.id });
+                        res.status(200).send(data);
                         // res.status(200).json({
                         //     message: "update completed"
                         // });

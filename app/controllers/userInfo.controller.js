@@ -27,10 +27,11 @@ exports.authUser = (req, res) => {
                     if (correctPW) {
                         console.log("datalala", data.id);
                         req.session.userId = data.id;
+                        res.send(data);
                         // res.status(200).json({
                         //     message: "update completed"
                         // });
-                        res.status(200);
+                        // res.status(200);
                         // res.status(200).json({
                         //     userId: data.id
                         // });//must response back so that cookies saved on browser

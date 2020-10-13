@@ -6,7 +6,7 @@ const cookieSession = require("cookie-session");
 
 var corsOptions = {
     origin: "https://eat-happy-inventur.herokuapp.com",
-    credentials: true
+    withCredentials: true
 };
 
 app.use(cors(corsOptions));

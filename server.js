@@ -18,7 +18,7 @@ const app = express();
 // });
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:8081"]
 };
 
 app.use(cors(corsOptions));

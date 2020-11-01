@@ -10,10 +10,10 @@ module.exports = app => {
         next();
     });
 
-    app.get("/amount", [authJwt.verifyToken], inventory.findQuantity);
+    app.get("/api/inventory/amount", [authJwt.verifyToken], inventory.findQuantity);
 
-    app.post("/changeAmount", [authJwt.verifyToken], inventory.updateQuantity);
+    app.post("/api/inventory/changeAmount", [authJwt.verifyToken], inventory.updateQuantity);
 
-    app.get("/goods", inventory.findAllGoods);
+    app.get("/api/inventory/goods", inventory.findAllGoods);
 
 };

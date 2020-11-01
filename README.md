@@ -6,7 +6,7 @@ https://github.com/Ee-Chee/Inventory-CRUD-App. If this is the first time you hap
 Unlike the previos projects done earlier, this project consists two parts which deployed in two different servers on Heroku. The backend part is deployed on https://eat-happy-inventur-api.herokuapp.com/. It uses Nodejs Express framework as RESTful API for [frontend](https://eat-happy-inventur.herokuapp.com/) server.  
 
 ## Features
-1) Cookie session for user identity verification
+1) JWT for user identity verification and authentication
 
 2) CORS configuration
 
@@ -17,4 +17,4 @@ Unlike the previos projects done earlier, this project consists two parts which 
 5) Three tables in database are created to manage user information, products/items details and quantity amount of goods
 
 **_NOTES_**:
-* Coding technologies: Nodejs Express, Sequelize, Postgresql.
+* Coding technologies: Nodejs Express, Sequelize, Postgresql, JWT.

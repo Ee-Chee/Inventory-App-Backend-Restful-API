@@ -18,9 +18,10 @@ const app = express();
 // });
 
 var corsOptions = {
-    origin: "https://localhost:8081"
+    origin: "http://localhost:8081"
 };
 
+app.options('*', cors());
 app.use(cors(corsOptions));
 
 // const cookieSessionMiddleware = cookieSession({

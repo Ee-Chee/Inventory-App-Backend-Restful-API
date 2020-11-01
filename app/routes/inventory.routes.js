@@ -1,6 +1,6 @@
 module.exports = app => {
     const inventory = require("../controllers/inventory.controller.js");
-    const { authJwt } = require("../middleware");
+    const authJwt = require("../middleware/authJwt");
 
     app.use(function (req, res, next) {
         res.header(

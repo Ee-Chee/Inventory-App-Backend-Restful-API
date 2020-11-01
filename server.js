@@ -21,7 +21,6 @@ var corsOptions = {
     origin: "http://localhost:8081"
 };
 
-app.options('*', cors());
 app.use(cors(corsOptions));
 
 // const cookieSessionMiddleware = cookieSession({

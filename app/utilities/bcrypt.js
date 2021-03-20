@@ -1,12 +1,13 @@
 const bcrypt = require("bcryptjs");
 
 exports.hashPassword = function hashPassword(plainTextPassword) {
-    return new Promise(function(resolve, reject) {
-        bcrypt.genSalt(function(err, salt) {
+    console.log("here2");
+    return new Promise(function (resolve, reject) {
+        bcrypt.genSalt(function (err, salt) {
             if (err) {
                 return reject(err);
             }
-            bcrypt.hash(plainTextPassword, salt, function(err, hash) {
+            bcrypt.hash(plainTextPassword, salt, function (err, hash) {
                 if (err) {
                     return reject(err);
                 }
@@ -20,11 +21,11 @@ exports.checkPassword = function checkPassword(
     textEnteredInLoginForm,
     hashedPasswordFromDatabase
 ) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         bcrypt.compare(
             textEnteredInLoginForm,
             hashedPasswordFromDatabase,
-            function(err, doesMatch) {
+            function (err, doesMatch) {
                 if (err) {
                     reject(err);
                 } else {

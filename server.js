@@ -4,25 +4,25 @@ const cors = require("cors");
 const app = express();
 // const cookieSession = require("cookie-session");
 
-// var corsOptions = {
-//     origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:8081"],
-//     credentials: true
-// };
+var corsOptions = {
+    origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:4200"],
+    credentials: true
+};
 
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', "https://eat-happy-inventur.herokuapp.com");
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'x-access-token,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', "https://eat-happy-inventur.herokuapp.com");
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'x-access-token,content-type');
+//     res.setHeader('Access-Control-Allow-Credentials', true);
+//     next();
+// });
 
 // var corsOptions = {
 //     origin: "https://eat-happy-inventur.herokuapp.com",
 //     // credentials: true
 // };
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // const cookieSessionMiddleware = cookieSession({
 //     secret: `I'm wondering...`,

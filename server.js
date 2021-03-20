@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 // const cookieSession = require("cookie-session");
@@ -18,7 +19,7 @@ const app = express();
 
 var corsOptions = {
     origin: "https://eat-happy-inventur.herokuapp.com",
-    credentials: true
+    // credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -30,9 +31,9 @@ app.use(cors(corsOptions));
 
 // app.use(cookieSessionMiddleware);
 
-app.use(express.json());
+app.use(bodyParser.json());
 
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.sequelize.sync();

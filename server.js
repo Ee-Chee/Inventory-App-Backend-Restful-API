@@ -35,7 +35,9 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
-db.sequelize.sync();
+// db.sequelize.sync();
+await db.sequelize.sync({ force: true });
+console.log("All models were synchronized successfully.");
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my first Angular project. I'm glad that it's served as inventory-app for Eat Happy Sushi Shop! I will work even harder to achieve what I want." });
@@ -46,6 +48,5 @@ require("./app/routes/inventory.routes")(app);
 
 const PORT = process.env.PORT || 8082;
 app.listen(PORT, () => {
-    console.log("here2", process.env)
     console.log(`Server is running on port ${PORT}.`);
 });

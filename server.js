@@ -4,6 +4,14 @@ const cors = require("cors");
 const app = express();
 // const cookieSession = require("cookie-session");
 
+
+///////////////////////////////////////
+// IMPORTANT:
+// Engines field is added in packagejson to control npm and node version!
+// It is required, otherwise heroku will use the latest version which causing other dependancies incompatible and hence, prompts cors error 
+/////////////////////////////////////////
+
+
 // var corsOptions = {
 //     origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:4200"],
 //     credentials: true
@@ -32,7 +40,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.sequelize.sync();

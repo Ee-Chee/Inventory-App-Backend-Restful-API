@@ -22,5 +22,5 @@ db.userInfos = require("./userInfo.model.js")(sequelize, Sequelize);
 inventory = require("./inventory.model.js");
 db.quantity = inventory.quantity(sequelize, Sequelize);
 db.goods = inventory.goods(sequelize, Sequelize);
-console.log('text');
+
 module.exports = db;

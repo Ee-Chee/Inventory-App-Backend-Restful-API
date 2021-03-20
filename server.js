@@ -16,12 +16,12 @@ const app = express();
 //     next();
 // });
 
-var corsOptions = {
-    origin: "https://eat-happy-inventur.herokuapp.com",
-    credentials: true
-};
+// var corsOptions = {
+//     origin: "https://eat-happy-inventur.herokuapp.com",
+//     credentials: true
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // const cookieSessionMiddleware = cookieSession({
 //     secret: `I'm wondering...`,

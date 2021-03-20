@@ -6,10 +6,9 @@ const bct = require("../utilities/bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.addUser = (req, res) => {
-    console.log("here3", config.secret);
+    console.log('BODY', req.body);
     bct.hashPassword(req.body.password)
         .then(hashedPW => {
-            console.log("here1");
             return UserInfo
                 .create({ username: req.body.username, password: hashedPW })
                 .then(data => {

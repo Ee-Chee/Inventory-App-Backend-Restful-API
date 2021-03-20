@@ -4,7 +4,7 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
-        
+
     pool: {
         max: dbConfig.pool.max,
         min: dbConfig.pool.min,
@@ -22,5 +22,5 @@ db.userInfos = require("./userInfo.model.js")(sequelize, Sequelize);
 inventory = require("./inventory.model.js");
 db.quantity = inventory.quantity(sequelize, Sequelize);
 db.goods = inventory.goods(sequelize, Sequelize);
-
+console.log('text');
 module.exports = db;

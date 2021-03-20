@@ -18,7 +18,7 @@ const app = express();
 // });
 
 var corsOptions = {
-    origin: "https://eat-happy-inventur.herokuapp.com"
+    origin: "https://eat-happy-inventur.herokuapp.com/"
 };
 
 app.use(cors(corsOptions));
@@ -32,7 +32,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.sequelize.sync();

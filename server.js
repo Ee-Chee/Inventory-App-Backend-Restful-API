@@ -4,10 +4,10 @@ const cors = require("cors");
 const app = express();
 // const cookieSession = require("cookie-session");
 
-var corsOptions = {
-    origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:4200"],
-    credentials: true
-};
+// var corsOptions = {
+//     origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:4200"],
+//     credentials: true
+// };
 
 // app.use(function (req, res, next) {
 //     res.setHeader('Access-Control-Allow-Origin', "https://eat-happy-inventur.herokuapp.com");
@@ -17,10 +17,9 @@ var corsOptions = {
 //     next();
 // });
 
-// var corsOptions = {
-//     origin: "https://eat-happy-inventur.herokuapp.com",
-//     // credentials: true
-// };
+var corsOptions = {
+    origin: "https://eat-happy-inventur.herokuapp.com"
+};
 
 app.use(cors(corsOptions));
 

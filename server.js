@@ -36,7 +36,7 @@ app.use(express.json());
 
 const db = require("./app/models");
 // db.sequelize.sync();
-await db.sequelize.sync({ force: true });
+db.sequelize.sync({ force: true });
 console.log("All models were synchronized successfully.");
 
 app.get("/", (req, res) => {

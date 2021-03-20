@@ -18,7 +18,7 @@ const app = express();
 // });
 
 var corsOptions = {
-    origin: "https://eat-happy-inventur.herokuapp.com/"
+    origin: "https://eat-happy-inventur.herokuapp.com"
 };
 
 app.use(cors(corsOptions));

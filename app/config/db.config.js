@@ -1,5 +1,5 @@
 let secrets;
-console.log(process.env);
+console.log('here1', process.env);
 if (process.env.NODE_ENV == "production") {
     secrets = process.env;
 } else {

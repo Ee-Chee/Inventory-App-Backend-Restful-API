@@ -55,7 +55,7 @@ setTimeout(() => {
 }, 5000)
 
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to my first Angular project. I'm glad that it's served as inventory-app for Eat Happy Sushi Shop! I will work even harder to achieve what I want." });
+    res.json({ message: "Welcome to my first Angular project. I'm glad that it's served as inventory-app for Eat Happy Sushi Shop!" });
 });
 
 require("./app/routes/auth.routes")(app);

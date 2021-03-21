@@ -9,6 +9,7 @@ const app = express();
 // IMPORTANT:
 // Engines field is added in packagejson to control npm and node version!
 // It is required, otherwise heroku will use the latest version which causing other dependancies incompatible and hence, prompts cors error 
+// Check powershell to see which version is installed by heroku
 /////////////////////////////////////////
 
 

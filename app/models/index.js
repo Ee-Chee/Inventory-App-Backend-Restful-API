@@ -4,6 +4,12 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
+    // "ssl": true,
+    dialectOptions: {
+        ssl: {
+            require: true
+        }
+    },
 
     pool: {
         max: dbConfig.pool.max,

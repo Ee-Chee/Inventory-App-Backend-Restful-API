@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 // const cookieSession = require("cookie-session");
-
+const mappedGoodsData = require("./app/utilities/mockingSQL");
 
 ///////////////////////////////////////
 // IMPORTANT:
@@ -27,7 +27,8 @@ const app = express();
 // });
 
 var corsOptions = {
-    origin: "https://eat-happy-inventur.herokuapp.com"
+    origin: ["https://eat-happy-inventur.herokuapp.com", "http://localhost:4200"]
+    // origin: "https://eat-happy-inventur.herokuapp.com"
 };
 
 app.use(cors(corsOptions));
@@ -45,6 +46,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.sequelize.sync();
+// { force: true }
+
+setTimeout(() => {
+    db.goods.bulkCreate(mappedGoodsData).then(data => {
+        console.log('goods defined');
+    })
+}, 5000)
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to my first Angular project. I'm glad that it's served as inventory-app for Eat Happy Sushi Shop! I will work even harder to achieve what I want." });

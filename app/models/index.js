@@ -5,6 +5,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
     // "ssl": true,
+    // To connect safely to AWS DB
     dialectOptions: {
         ssl: {
             require: true

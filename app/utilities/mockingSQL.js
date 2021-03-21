@@ -2,6 +2,7 @@
 //INSERT INTO quantities (userid, quantity_array) VALUES (1, ARRAY[13, 7, 26, 50, 4, 0]::INTEGER[]);
 //OR run this code: Quantity.create({userid: 1, quantity_array: [13, 7, 26, 50, 4, 0]}); should work the same
 //DELETE FROM goods WHERE id = 7;
+
 // UPDATE goods SET subunit_n = 5 where item = 'Pick & Mix Mochi Acai';
 // UPDATE goods SET unit = 'Karton' where item = 'Portionsbecher';
 // UPDATE goods SET unit = 'Karton' where item = 'Portionsbecher Deckel';
@@ -13,174 +14,360 @@
 // UPDATE goods SET subunit = 'Reihe', subunit_n = 3 where item = 'M Schale';
 // UPDATE goods SET subunit = 'Reihe', subunit_n = 6 where item = 'M Schale Deckel';
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gekochter Thunfisch', 'Beutel', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ingwer', 'Karton', 'Beutel', 10, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Nori Premium ganzes Blatt', 'Karton', 'Packungen', 10, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Nori Premium halbes Blatt', 'Karton', 'Packungen', 10, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Röstzwieblen', 'Beutel', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sesam schwarz', 'Beutel', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sesam weiß', 'Beutel', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Soja Sauce 5ml', 'Karton', 'Beutel', 10, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Soja Sauce 10ml', 'Karton', 'Beutel', 10, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Wasabi-Sachets', 'Beutel', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sushi Su', 'Kanister', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sushi Reis', 'Sack', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Rote Bete Saft', 'Flasche', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Rapsöl', 'Flasche', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Reisnudeln Vermicelli', 'Packungen', NULL, NULL, 'Trockensortiment');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Reispapier', 'Karton', 'Packungen', 10, 'Trockensortiment');
+// DROP TABLE IF EXISTS goods;
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Lachs', 'Stück', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tuna Saku', 'Karton', 'Packungen', 10, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Surimi', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tamago', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tofu Inari', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ebi', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tilapia ASC', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tempura Ebi', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Masago Orange', 'Karton', 'Box', 12, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gyoza Huhn 2kg', 'Karton', 'Stück', 100, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gyoza Yasai (Vegetarisch)', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gebratene Gemüsenudeln', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Hähnchenbrustwürfel', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Wakame Salat', 'Karton', 'Beutel', 12, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tintenfischsalat', 'Karton', 'Beutel', 8, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Edamame ungeschält', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Edamame geschält', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Yakitori Spieße', 'Karton', 'Packungen', 10, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Lachs Teriyaki Spieße', 'Karton', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Bao Hühnchen', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Bao Spicy Shrimp', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Curry Sauce gelb', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Curry Sauce rot', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gemüsemix Asia Style', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Blattspinat', 'Beutel', NULL, NULL, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Dorayaki Lemon Cheese', 'Karton', 'Packungen', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Dorayaki Matcha Mascarpone', 'Karton', 'Packungen', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Himbeer', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Mango', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Matcha', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Schokolade', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Strawberry Cheesecake', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Zimt', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Acai', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Cheesecake', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Himbeere', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Schokolade', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Kokos', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Mango', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Matcha', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Tiramisu', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mochi Kokos', 'Karton', 'Box', 30, 'Tiefkühlprodukte');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Thunfischfüllung mit Mayo', 'Karton', 'Beutel', 2, 'Tiefkühlprodukte');
+// CREATE TABLE goods (
+// 	id SERIAL PRIMARY KEY,
+// 	item VARCHAR(255) NOT NULL UNIQUE,
+// 	unit VARCHAR(255) NOT NULL,
+//     subunit VARCHAR(255),
+//     subunit_n INT,
+//     category VARCHAR(255) NOT NULL
+// );
+const NULL = null;
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mayonnaise', 'Tube', NULL, NULL, 'Kühl');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Teriyaki Sauce', 'Flasche', NULL, NULL, 'Kühl');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Piri-piri Sauce', 'Flasche', NULL, NULL, 'Kühl');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sriracha Sauce', 'Flasche', NULL, NULL, 'Kühl');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Bio Frischkäse', 'Rolle', NULL, NULL, 'Kühl');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Roasted Sesame Sauce', 'Stück', NULL, NULL, 'Kühl');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Roasted Sesame Sauce 850ml', 'Flasche', NULL, NULL, 'Kühl');
+let goodsArray = [
+    ['Gekochter Thunfisch', 'Beutel', NULL, NULL, 'Trockensortiment'],
+    ['Ingwer', 'Karton', 'Beutel', 10, 'Trockensortiment'],
+    ['Nori Premium ganzes Blatt', 'Karton', 'Packungen', 10, 'Trockensortiment'],
+    ['Nori Premium halbes Blatt', 'Karton', 'Packungen', 10, 'Trockensortiment'],
+    ['Röstzwieblen', 'Beutel', NULL, NULL, 'Trockensortiment'],
+    ['Sesam schwarz', 'Beutel', NULL, NULL, 'Trockensortiment'],
+    ['Sesam weiß', 'Beutel', NULL, NULL, 'Trockensortiment'],
+    ['Soja Sauce 5ml', 'Karton', 'Beutel', 10, 'Trockensortiment'],
+    ['Soja Sauce 10ml', 'Karton', 'Beutel', 10, 'Trockensortiment'],
+    ['Wasabi-Sachets', 'Beutel', NULL, NULL, 'Trockensortiment'],
+    ['Sushi Su', 'Kanister', NULL, NULL, 'Trockensortiment'],
+    ['Sushi Reis', 'Sack', NULL, NULL, 'Trockensortiment'],
+    ['Rote Bete Saft', 'Flasche', NULL, NULL, 'Trockensortiment'],
+    ['Rapsöl', 'Flasche', NULL, NULL, 'Trockensortiment'],
+    ['Reisnudeln Vermicelli', 'Packungen', NULL, NULL, 'Trockensortiment'],
+    ['Reispapier', 'Karton', 'Packungen', 10, 'Trockensortiment'],
+    ['Lachs generisch', 'Stück', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Tuna Saku', 'Karton', 'Packungen', 10, 'Tiefkühlprodukte'],
+    ['Surimi', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Tamago', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Tofu Inari', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Ebi', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte'],
+    ['Tilapia ASC', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte'],
+    ['Tempura Ebi', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte'],
+    ['Tobikko orange Supreme', 'Karton', 'Box', 12, 'Tiefkühlprodukte'],
+    ['Gyoza Huhn 2kg', 'Karton', 'Stück', 100, 'Tiefkühlprodukte'],
+    ['Gyoza Yasai (Vegetarisch)', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Gebratene Gemüsenudeln', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['50/50 Hähnchenstücke', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Wakame Salat', 'Karton', 'Beutel', 12, 'Tiefkühlprodukte'],
+    ['Tintenfischsalat', 'Karton', 'Beutel', 8, 'Tiefkühlprodukte'],
+    ['Edamame 500g', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Edamame Creme', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte'],
+    ['Edamame lose', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Yakitori Spieße', 'Karton', 'Packungen', 10, 'Tiefkühlprodukte'],
+    ['Lachs Teriyaki Spieße', 'Karton', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Bao Hühnchen', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Bao Spicy Shrimp', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Curry Sauce gelb', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte'],
+    ['Curry Sauce rot', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte'],
+    ['Gemüsemix Asia Style', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Blattspinat', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'],
+    ['Dorayaki Lemon Cheese', 'Karton', 'Packungen', 30, 'Tiefkühlprodukte'],
+    ['Dorayaki Matcha Mascarpone', 'Karton', 'Packungen', 30, 'Tiefkühlprodukte'],
+    ['Mochi Himbeer', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Mochi Mango', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Mochi Matcha', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Mochi Schokolade', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Mochi Strawberry Cheesecake', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Mochi Zimt', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Mochi Kokos', 'Karton', 'Box', 30, 'Tiefkühlprodukte'],
+    ['Thunfischfüllung mit Mayo', 'Karton', 'Beutel', 2, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Acai', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Cheesecake', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Himbeere', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Schokolade', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Kokos', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Mango', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Salzkaramell', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Matcha', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Pick & Mix Mochi Tiramisu', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'],
+    ['Mayonnaise', 'Tube', NULL, NULL, 'Kühl'],
+    ['Teriyaki Sauce 850ml', 'Flasche', NULL, NULL, 'Kühl'],
+    ['Piri-piri Sauce', 'Flasche', NULL, NULL, 'Kühl'],
+    ['Sriracha Sauce', 'Flasche', NULL, NULL, 'Kühl'],
+    ['Bio Frischkäse', 'Rolle', NULL, NULL, 'Kühl'],
+    ['Roasted Sesame Sauce 147x30g', 'Stück', NULL, NULL, 'Kühl'],
+    ['Roasted Sesame Sauce 850ml', 'Flasche', NULL, NULL, 'Kühl'],
+    ['Portionsbecher 30ml incl. Deckel', 'Karton', 'Packungen', 20, 'Verpackungen'],
+    ['Donburi Deckel', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Donburi Schale', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Schale viereckig', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Schale viereckig Deckel', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Poke Schale', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Poke Schale Deckel', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Bento Box Deckel', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Bento Box Schale', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Inlay Curry', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Sushi Party-Box L', 'Karton', 'Stück', 100, 'Verpackungen'],
+    ['Sushi Party-Box M', 'Karton', 'Stück', 100, 'Verpackungen'],
+    ['Tannebaum Set', 'Beutel', 'Stück', 42, 'Verpackungen'],
+    ['Rollenhaftetiketten Veggie Green', 'Karton', 'Rolle', 4, 'Verpackungen'],
+    ['Rollenhaftetiketten Street Food Orange', 'Karton', 'Rolle', 4, 'Verpackungen'],
+    ['Rollenhaftetiketten Sushi Coral', 'Karton', 'Rolle', 4, 'Verpackungen'],
+    ['Schuber MOCHI EH', 'Stück', NULL, NULL, 'Verpackungen'],
+    ['Drucker Klebe-Etikett', 'Rolle', NULL, NULL, 'Verpackungen'],
+    ['MHD-Etiketten', 'Rolle', NULL, NULL, 'Verpackungen'],
+    ['Mini Schale', 'Karton', 'Packungen', 6, 'Verpackungen'],
+    ['Mini Schale Deckel', 'Karton', 'Reihe', 6, 'Verpackungen'],
+    ['S Schale', 'Karton', 'Reihe', 4, 'Verpackungen'],
+    ['S Schale Deckel', 'Karton', 'Reihe', 8, 'Verpackungen'],
+    ['M Schale', 'Karton', 'Packungen', NULL, 'Verpackungen'],
+    ['M Schale Deckel', 'Karton', 'Packungen', NULL, 'Verpackungen'],
+    ['Sashimi lang Schale', 'Karton', 'Packungen', 4, 'Verpackungen'],
+    ['Sashimi lang Schale Deckel', 'Karton', 'Packungen', 12, 'Verpackungen'],
+    ['Sashimi groß Schale', 'Karton', 'Packungen', 2, 'Verpackungen'],
+    ['Sashimi groß Schale Deckel', 'Karton', 'Packungen', 6, 'Verpackungen'],
+    ['Salatschale oval', 'Karton', 'Reihe', NULL, 'Verpackungen'],
+    ['Salatschale oval Deckel', 'Karton', 'Reihe', NULL, 'Verpackungen'],
+    ['Pick & Mix Mochi Schale', 'Karton', 'Beutel', 16, 'Verpackungen'],
+    ['Pick & Mix Mochi Deckel', 'Karton', 'Beutel', 32, 'Verpackungen'],
+    ['Küchenrolle', 'Packung', 'Rolle', 4, 'Reinigung'],
+    ['Saugeinlage', 'Karton', NULL, NULL, 'Reinigung'],
+    ['Blaue Handtuchrollen', 'Packung', 'Rolle', 6, 'Reinigung'],
+    ['Frischhaltefolie', 'Rolle', NULL, NULL, 'Reinigung'],
+    ['Gefrierbeutel', 'Rolle', NULL, NULL, 'Reinigung'],
+    ['Abfallsack blau', 'Rolle', NULL, NULL, 'Reinigung'],
+    ['Müllbeutel schwarz', 'Rolle', NULL, NULL, 'Reinigung'],
+    ['Scheuerschwamm', 'Packung', 'Stück', 6, 'Reinigung'],
+    ['Wypall X80 Wischtücher weiß', 'Karton', 'Packungen', 4, 'Reinigung'],
+    ['Wettask Wischtücher', 'Rolle', NULL, NULL, 'Reinigung'],
+    ['Einwegmopp', 'Packung', 'Stück', 10, 'Reinigung'],
+    ['Aseptopol EL 75 Handspülmittel', 'Kanister', NULL, NULL, 'Reinigung'],
+    ['Delimer EL 60 Allzweckreiniger', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['EL 41 Glasreiniger', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['Multi EL 10 Allzweckreiniger', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['P3-alcodes Flächendesinfektion', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['P3-manodes Händedesinfektion', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['P3-manosoft Waschlotion', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['Spülmaschinensalz', 'Beutel', NULL, NULL, 'Reinigung'],
+    ['Topmatic Hero Spülmaschine', 'Kanister', NULL, NULL, 'Reinigung'],
+    ['Toprinse Clean Klarspüler', 'Kanister', NULL, NULL, 'Reinigung'],
+    ['Ecolab Epicare 7 Pflegelotion', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['Epicare Hand Protect', 'Flasche', NULL, NULL, 'Reinigung'],
+    ['Handschuhe weiss S', 'Karton', 'Packungen', 10, 'Reinigung'],
+    ['Handschuhe weiss M', 'Karton', 'Packungen', 10, 'Reinigung'],
+    ['Handschuhe weiss L', 'Karton', 'Packungen', 10, 'Reinigung'],
+    ['Handschuhe weiss XL', 'Karton', 'Packungen', 10, 'Reinigung'],
+    ['Reinigungshandschuhe blau L', 'Box', NULL, NULL, 'Reinigung'],
+    ['Reinigungshandschuhe blau M', 'Box', NULL, NULL, 'Reinigung'],
+    ['Reinigungshandschuhe blau S', 'Box', NULL, NULL, 'Reinigung'],
+    ['Cliphauben', 'Packungen', NULL, NULL, 'Reinigung'],
+    ['Ärmelschoner transparent', 'Packungen', NULL, NULL, 'Reinigung'],
+    ['Haarnetze', 'Packungen', NULL, NULL, 'Reinigung'],
+    ['Vliesmantel', 'Packung', 'Stück', 5, 'Reinigung'],
+    ['Erdnuss Dip', 'Tray', 'Stück', 10, 'Sideproducts'],
+    ['Teriyaki Dip', 'Tray', 'Stück', 10, 'Sideproducts'],
+    ['Roasted Sesame Dip', 'Tray', 'Stück', 10, 'Sideproducts'],
+    ['Meerrettich Wasabi Dip', 'Tray', 'Stück', 10, 'Sideproducts'],
+    ['Cupnudeln Hühnchen', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Cupnudeln Miso', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Cupnudeln Soja Sauce', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Wasabi Paste 15%', 'Packung', NULL, NULL, 'Sideproducts'],
+    ['Kikkoman Shoyu Dispenser 150ml', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Mango Chili Sauce', 'Packung', NULL, NULL, 'Sideproducts'],
+    ['Roasted Sesame Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'],
+    ['Sriracha Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'],
+    ['Teriyaki Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'],
+    ['Wasabi-Ingwer Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'],
+    ['Cashew gewürzt', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Ingwer Schokolade', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Soja Schokolade', 'Karton', NULL, NULL, 'Sideproducts'],
+    ['Nori Blätter Packung', 'Packung', 'Stück', 25, 'Sideproducts'],
+    ['SP-Sushi Reis', 'Karton', 'Stück', 8, 'Sideproducts'],
+    ['SP-Sushi Su', 'Karton', 'Stück', 6, 'Sideproducts'],
+    ['Ess-Stäbchen Bambus', 'Beutel', NULL, NULL, 'Sonstiges'],
+    ['Servietten Eat Happy', 'Packungen', NULL, NULL, 'Sonstiges'],
+    ['Baran', 'Box', NULL, NULL, 'Sonstiges'],
+    ['Spritzbeutel auf Rolle', 'Rolle', NULL, NULL, 'Sonstiges'],
+    ['Fingerfoodspiesse', 'Beutel', NULL, NULL, 'Sonstiges'],
+    ['Gabeln', 'Beutel', NULL, NULL, 'Sonstiges'],
+    ['Löffel', 'Beutel', NULL, NULL, 'Sonstiges'],
+    ['Rührschüssel', 'Stück', NULL, NULL, 'Sonstiges'],
+    ['Rührschüssel Deckel', 'Stück', NULL, NULL, 'Sonstiges']
+];
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Portionsbecher Deckel', 'Karton', 'Packungen', 20, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Portionsbecher', 'Karton', 'Packungen', 20, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Donburi Deckel', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Donburi Schale', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Schale viereckig', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Schale viereckig Deckel', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Poke Schale', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Poke Schale Deckel', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Bento Box Deckel', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Bento Box Schale', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Inlay Curry', 'Stück', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sushi Party-Box L', 'Karton', 'Stück', 100, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sushi Party-Box M', 'Karton', 'Stück', 100, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Tannebaum Set', 'Beutel', 'Stück', 42, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Blaue Noon-Sushi Lollipops', 'Karton', 'Rolle', 4, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Grüne Veggie Lollipops', 'Karton', 'Rolle', 4, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pinke Sushi Lollipops', 'Karton', 'Rolle', 4, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Aufkleber Bento', 'Rolle', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Aufkleber Donburi', 'Rolle', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Vegetarisch Sticker', 'Rolle', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Drucker Klebe-Etikett', 'Rolle', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('MHD-Etiketten', 'Rolle', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mini Schale', 'Karton', 'Packungen', 6, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mini Schale Deckel', 'Karton', 'Reihe', 6, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('S Schale', 'Karton', 'Reihe', 4, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('S Schale Deckel', 'Karton', 'Reihe', 8, 'Verpackungen');
-// *INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('M Schale', 'Karton', 'Packungen', NULL, 'Verpackungen'); 
-// *INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('M Schale Deckel', 'Karton', 'Packungen', NULL, 'Verpackungen'); 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sashimi lang Schale', 'Karton', 'Packungen', 4, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sashimi lang Schale Deckel', 'Karton', 'Packungen', 12, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sashimi groß Schale', 'Karton', 'Packungen', 2, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Sashimi groß Schale Deckel', 'Karton', 'Packungen', 6, 'Verpackungen');
-// *INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Salatschale oval', 'Karton', 'Reihe', NULL, 'Verpackungen');
-// *INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Salatschale oval Deckel', 'Karton', 'Reihe', NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Schale', 'Packungen', NULL, NULL, 'Verpackungen');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Pick & Mix Mochi Deckel', 'Packungen', NULL, NULL, 'Verpackungen');
+const mappedGoods = goodsArray.map((eachItem) => {
+    return { item: eachItem[0], unit: eachItem[1], subunit: eachItem[2], subunit_n: eachItem[3], category: eachItem[4] }
+});
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Küchenrolle', 'Packung', 'Rolle', 4, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Blaue Handtuchrollen', 'Packung', 'Rolle', 6, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Frischhaltefolie', 'Rolle', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gefrierbeutel', 'Rolle', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Abfallsack blau', 'Rolle', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Müllbeutel schwarz', 'Rolle', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Scheuerschwamm', 'Packung', 'Stück', 6, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Wypall X80 Wischtücher weiß', 'Karton', 'Packungen', 4, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Wettask Wischtücher', 'Rolle', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Einwegmopp', 'Packung', 'Stück', 10, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Aseptopol EL 75 Handspülmittel', 'Kanister', NULL, NULL, 'Reinigung'); //id=146
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Delimer EL 60 Allzweckreiniger', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('EL 41 Glasreiniger', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Multi EL 10 Allzweckreiniger', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('P3-alcodes Flächendesinfektion', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('P3-manodes Händedesinfektion', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('P3-manosoft Waschlotion', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Spülmaschinensalz', 'Beutel', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Topmatic Hero Spülmaschine', 'Kanister', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Toprinse Clean Klarspüler', 'Kanister', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ecolab Epicare 7 Pflegelotion', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Epicare Hand Protect', 'Flasche', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Handschuhe weiss S', 'Karton', 'Packungen', 10, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Handschuhe weiss M', 'Karton', 'Packungen', 10, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Handschuhe weiss L', 'Karton', 'Packungen', 10, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Handschuhe weiss XL', 'Karton', 'Packungen', 10, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Reinigungshandschuhe blau L', 'Box', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Reinigungshandschuhe blau M', 'Box', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Reinigungshandschuhe blau S', 'Box', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Cliphauben', 'Packungen', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ärmelschoner transparent', 'Packungen', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Haarnetze', 'Packungen', NULL, NULL, 'Reinigung');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Vliesmantel', 'Packung', 'Stück', 5, 'Reinigung');
+module.exports = mappedGoods;
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Erdnuss Dip', 'Tray', 'Stück', 10, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Teriyaki Dip', 'Tray', 'Stück', 10, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Roasted Sesame Dip', 'Tray', 'Stück', 10, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Meerrettich Wasabi Dip', 'Tray', 'Stück', 10, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Cupnudeln Hühnchen', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Cupnudeln Miso', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Cupnudeln Soja Sauce', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Wasabi Paste 15%', 'Packung', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Kikkoman Soja Sauce 150ml', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Kikkoman Soja Sauce salzreduziert', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Mango Chili Sauce', 'Packung', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('SP-Roasted Sesame Sauce', 'Packung', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('SP-Teriyaki Sauce', 'Packung', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Wasabi-Ingwer Sauce', 'Packung', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Cashew gewürzt', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ingwer Schokolade', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Soja Schokolade', 'Karton', NULL, NULL, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Nori Blätter Packung', 'Packung', 'Stück', 25, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('SP-Sushi Reis', 'Karton', 'Stück', 8, 'Sideproducts');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('SP-Sushi Su', 'Karton', 'Stück', 6, 'Sideproducts');
+//DOESNT WORK because of stupid syntax insert error and this data is NOT UP-TO-DATE
+// INSERT INTO goods(item, unit, subunit, subunit_n, category)
+// VALUES
+//     ('Gekochter Thunfisch', 'Beutel', NULL, NULL, 'Trockensortiment'),
+//     ('Ingwer', 'Karton', 'Beutel', 10, 'Trockensortiment'),
+//     ('Nori Premium ganzes Blatt', 'Karton', 'Packungen', 10, 'Trockensortiment'),
+//     ('Nori Premium halbes Blatt', 'Karton', 'Packungen', 10, 'Trockensortiment'),
+//     ('Röstzwieblen', 'Beutel', NULL, NULL, 'Trockensortiment'),
+//     ('Sesam schwarz', 'Beutel', NULL, NULL, 'Trockensortiment'),
+//     ('Sesam weiß', 'Beutel', NULL, NULL, 'Trockensortiment'),
+//     ('Soja Sauce 5ml', 'Karton', 'Beutel', 10, 'Trockensortiment'),
+//     ('Soja Sauce 10ml', 'Karton', 'Beutel', 10, 'Trockensortiment'),
+//     ('Wasabi-Sachets', 'Beutel', NULL, NULL, 'Trockensortiment'),
+//     ('Sushi Su', 'Kanister', NULL, NULL, 'Trockensortiment'),
+//     ('Sushi Reis', 'Sack', NULL, NULL, 'Trockensortiment'),
+//     ('Rote Bete Saft', 'Flasche', NULL, NULL, 'Trockensortiment'),
+//     ('Rapsöl', 'Flasche', NULL, NULL, 'Trockensortiment'),
+//     ('Reisnudeln Vermicelli', 'Packungen', NULL, NULL, 'Trockensortiment'),
+//     ('Reispapier', 'Karton', 'Packungen', 10, 'Trockensortiment'),
+//     ('Lachs generisch', 'Stück', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Tuna Saku', 'Karton', 'Packungen', 10, 'Tiefkühlprodukte'),
+//     ('Surimi', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Tamago', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Tofu Inari', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Ebi', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte'),
+//     ('Tilapia ASC', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte'),
+//     ('Tempura Ebi', 'Karton', 'Packungen', 20, 'Tiefkühlprodukte'),
+//     ('Tobikko orange Supreme', 'Karton', 'Box', 12, 'Tiefkühlprodukte'),
+//     ('Gyoza Huhn 2kg', 'Karton', 'Stück', 100, 'Tiefkühlprodukte'),
+//     ('Gyoza Yasai (Vegetarisch)', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Gebratene Gemüsenudeln', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('50/50 Hähnchenstücke', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Wakame Salat', 'Karton', 'Beutel', 12, 'Tiefkühlprodukte'),
+//     ('Tintenfischsalat', 'Karton', 'Beutel', 8, 'Tiefkühlprodukte'),
+//     ('Edamame 500g', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Edamame Creme', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte'),
+//     ('Edamame lose', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Yakitori Spieße', 'Karton', 'Packungen', 10, 'Tiefkühlprodukte'),
+//     ('Lachs Teriyaki Spieße', 'Karton', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Bao Hühnchen', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Bao Spicy Shrimp', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Curry Sauce gelb', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte'),
+//     ('Curry Sauce rot', 'Karton', 'Beutel', 4, 'Tiefkühlprodukte'),
+//     ('Gemüsemix Asia Style', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Blattspinat', 'Beutel', NULL, NULL, 'Tiefkühlprodukte'),
+//     ('Dorayaki Lemon Cheese', 'Karton', 'Packungen', 30, 'Tiefkühlprodukte'),
+//     ('Dorayaki Matcha Mascarpone', 'Karton', 'Packungen', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Himbeer', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Mango', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Matcha', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Schokolade', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Strawberry Cheesecake', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Zimt', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Mochi Kokos', 'Karton', 'Box', 30, 'Tiefkühlprodukte'),
+//     ('Thunfischfüllung mit Mayo', 'Karton', 'Beutel', 2, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Acai', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Cheesecake', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Himbeere', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Schokolade', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Kokos', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Mango', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Salzkaramell', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Matcha', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Pick & Mix Mochi Tiramisu', 'Karton', 'Beutel', 5, 'Tiefkühlprodukte'),
+//     ('Mayonnaise', 'Tube', NULL, NULL, 'Kühl'),
+//     ('Teriyaki Sauce 850ml', 'Flasche', NULL, NULL, 'Kühl'),
+//     ('Piri-piri Sauce', 'Flasche', NULL, NULL, 'Kühl'),
+//     ('Sriracha Sauce', 'Flasche', NULL, NULL, 'Kühl'),
+//     ('Bio Frischkäse', 'Rolle', NULL, NULL, 'Kühl'),
+//     ('Roasted Sesame Sauce 147x30g', 'Stück', NULL, NULL, 'Kühl'),
+//     ('Roasted Sesame Sauce 850ml', 'Flasche', NULL, NULL, 'Kühl'),
+//     ('Portionsbecher 30ml incl. Deckel', 'Karton', 'Packungen', 20, 'Verpackungen'),
+//     ('Donburi Deckel', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Donburi Schale', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Schale viereckig', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Schale viereckig Deckel', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Poke Schale', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Poke Schale Deckel', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Bento Box Deckel', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Bento Box Schale', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Inlay Curry', 'Stück', NULL, NULL, 'Verpackungen'),
+//     ('Sushi Party-Box L', 'Karton', 'Stück', 100, 'Verpackungen'),
+//     ('Sushi Party-Box M', 'Karton', 'Stück', 100, 'Verpackungen'),
+//     ('Tannebaum Set', 'Beutel', 'Stück', 42, 'Verpackungen'),
+//     ('Rollenhaftetiketten Veggie Green', 'Karton', 'Rolle', 4, 'Verpackungen'),
+//     ('Rollenhaftetiketten Street Food Orange', 'Karton', 'Rolle', 4, 'Verpackungen'),
+//     ('Rollenhaftetiketten Sushi Coral', 'Karton', 'Rolle', 4, 'Verpackungen'),
+//     ('Schuber MOCHI EH', 'Packungen', NULL, NULL, 'Verpackungen'),
+//     ('Drucker Klebe-Etikett', 'Rolle', NULL, NULL, 'Verpackungen'),
+//     ('MHD-Etiketten', 'Rolle', NULL, NULL, 'Verpackungen'),
+//     ('Mini Schale', 'Karton', 'Packungen', 6, 'Verpackungen'),
+//     ('Mini Schale Deckel', 'Karton', 'Reihe', 6, 'Verpackungen'),
+//     ('S Schale', 'Karton', 'Reihe', 4, 'Verpackungen'),
+//     ('S Schale Deckel', 'Karton', 'Reihe', 8, 'Verpackungen'),
+//     ('M Schale', 'Karton', 'Packungen', NULL, 'Verpackungen'),
+//     ('M Schale Deckel', 'Karton', 'Packungen', NULL, 'Verpackungen'),
+//     ('Sashimi lang Schale', 'Karton', 'Packungen', 4, 'Verpackungen'),
+//     ('Sashimi lang Schale Deckel', 'Karton', 'Packungen', 12, 'Verpackungen'),
+//     ('Sashimi groß Schale', 'Karton', 'Packungen', 2, 'Verpackungen'),
+//     ('Sashimi groß Schale Deckel', 'Karton', 'Packungen', 6, 'Verpackungen'),
+//     ('Salatschale oval', 'Karton', 'Reihe', NULL, 'Verpackungen'),
+//     ('Salatschale oval Deckel', 'Karton', 'Reihe', NULL, 'Verpackungen'),
+//     ('Pick & Mix Mochi Schale', 'Karton', 'Beutel', 16, 'Verpackungen'),
+//     ('Pick & Mix Mochi Deckel', 'Karton', 'Beutel', 32, 'Verpackungen'),
+//     ('Küchenrolle', 'Packung', 'Rolle', 4, 'Reinigung'),
+//     ('Saugeinlage', 'Karton', NULL, NULL, 'Reinigung'),
+//     ('Blaue Handtuchrollen', 'Packung', 'Rolle', 6, 'Reinigung'),
+//     ('Frischhaltefolie', 'Rolle', NULL, NULL, 'Reinigung'),
+//     ('Gefrierbeutel', 'Rolle', NULL, NULL, 'Reinigung'),
+//     ('Abfallsack blau', 'Rolle', NULL, NULL, 'Reinigung'),
+//     ('Müllbeutel schwarz', 'Rolle', NULL, NULL, 'Reinigung'),
+//     ('Scheuerschwamm', 'Packung', 'Stück', 6, 'Reinigung'),
+//     ('Wypall X80 Wischtücher weiß', 'Karton', 'Packungen', 4, 'Reinigung'),
+//     ('Wettask Wischtücher', 'Rolle', NULL, NULL, 'Reinigung'),
+//     ('Einwegmopp', 'Packung', 'Stück', 10, 'Reinigung'),
+//     ('Aseptopol EL 75 Handspülmittel', 'Kanister', NULL, NULL, 'Reinigung'),
+//     ('Delimer EL 60 Allzweckreiniger', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('EL 41 Glasreiniger', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('Multi EL 10 Allzweckreiniger', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('P3-alcodes Flächendesinfektion', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('P3-manodes Händedesinfektion', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('P3-manosoft Waschlotion', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('Spülmaschinensalz', 'Beutel', NULL, NULL, 'Reinigung'),
+//     ('Topmatic Hero Spülmaschine', 'Kanister', NULL, NULL, 'Reinigung'),
+//     ('Toprinse Clean Klarspüler', 'Kanister', NULL, NULL, 'Reinigung'),
+//     ('Ecolab Epicare 7 Pflegelotion', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('Epicare Hand Protect', 'Flasche', NULL, NULL, 'Reinigung'),
+//     ('Handschuhe weiss S', 'Karton', 'Packungen', 10, 'Reinigung'),
+//     ('Handschuhe weiss M', 'Karton', 'Packungen', 10, 'Reinigung'),
+//     ('Handschuhe weiss L', 'Karton', 'Packungen', 10, 'Reinigung'),
+//     ('Handschuhe weiss XL', 'Karton', 'Packungen', 10, 'Reinigung'),
+//     ('Reinigungshandschuhe blau L', 'Box', NULL, NULL, 'Reinigung'),
+//     ('Reinigungshandschuhe blau M', 'Box', NULL, NULL, 'Reinigung'),
+//     ('Reinigungshandschuhe blau S', 'Box', NULL, NULL, 'Reinigung'),
+//     ('Cliphauben', 'Packungen', NULL, NULL, 'Reinigung'),
+//     ('Ärmelschoner transparent', 'Packungen', NULL, NULL, 'Reinigung'),
+//     ('Haarnetze', 'Packungen', NULL, NULL, 'Reinigung'),
+//     ('Vliesmantel', 'Packung', 'Stück', 5, 'Reinigung'),
+//     ('Erdnuss Dip', 'Tray', 'Stück', 10, 'Sideproducts'),
+//     ('Teriyaki Dip', 'Tray', 'Stück', 10, 'Sideproducts'),
+//     ('Roasted Sesame Dip', 'Tray', 'Stück', 10, 'Sideproducts'),
+//     ('Meerrettich Wasabi Dip', 'Tray', 'Stück', 10, 'Sideproducts'),
+//     ('Cupnudeln Hühnchen', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Cupnudeln Miso', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Cupnudeln Soja Sauce', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Wasabi Paste 15%', 'Packung', NULL, NULL, 'Sideproducts'),
+//     ('Kikkoman Shoyu Dispenser 150ml', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Mango Chili Sauce', 'Packung', NULL, NULL, 'Sideproducts'),
+//     ('Roasted Sesame Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'),
+//     ('Sriracha Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'),
+//     ('Teriyaki Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'),
+//     ('Wasabi-Ingwer Sauce EH', 'Packung', NULL, NULL, 'Sideproducts'),
+//     ('Cashew gewürzt', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Ingwer Schokolade', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Soja Schokolade', 'Karton', NULL, NULL, 'Sideproducts'),
+//     ('Nori Blätter Packung', 'Packung', 'Stück', 25, 'Sideproducts'),
+//     ('SP-Sushi Reis', 'Karton', 'Stück', 8, 'Sideproducts'),
+//     ('SP-Sushi Su', 'Karton', 'Stück', 6, 'Sideproducts'),
+//     ('Ess-Stäbchen Bambus', 'Beutel', NULL, NULL, 'Sonstiges'),
+//     ('Servietten Eat Happy', 'Packungen', NULL, NULL, 'Sonstiges'),
+//     ('Baran', 'Box', NULL, NULL, 'Sonstiges'),
+//     ('Spritzbeutel auf Rolle', 'Rolle', NULL, NULL, 'Sonstiges'),
+//     ('Fingerfoodspiesse', 'Beutel', NULL, NULL, 'Sonstiges'),
+//     ('Gabeln', 'Beutel', NULL, NULL, 'Sonstiges'),
+//     ('Löffel', 'Beutel', NULL, NULL, 'Sonstiges'),
+//     ('Rührschüssel', 'Stück', NULL, NULL, 'Sonstiges'),
+//     ('Rührschüssel Deckel', 'Stück', NULL, NULL, 'Sonstiges');
 
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Ess-Stäbchen Bambus', 'Beutel', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Servietten Eat Happy', 'Packungen', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Baran', 'Box', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Spritzbeutel auf Rolle', 'Rolle', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Fingerfoodspiesse', 'Beutel', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Gabeln', 'Beutel', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Löffel', 'Beutel', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Rührschüssel', 'Stück', NULL, NULL, 'Sonstiges');
-// INSERT INTO goods (item, unit, subunit, subunit_n, category) VALUES ('Rührschüssel Deckel', 'Stück', NULL, NULL, 'Sonstiges');
 
+// TIPS for VScode: 															
+// shift + alt + mouse move to select texts of column and shift + alt + i + select all rows to select the last char of each row 															
+// Uncomment out to check syntax error in mock file.															
